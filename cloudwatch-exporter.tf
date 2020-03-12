@@ -15,7 +15,7 @@ resource "helm_release" "cloudwatch_exporter" {
 
   set {
     name  = "aws.role"
-    value = aws_iam_role.cloudwatch_exporter.name
+    value = aws_iam_role.cloudwatch_exporter.0.name
   }
 
   depends_on = [

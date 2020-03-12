@@ -19,7 +19,7 @@ resource "helm_release" "ecr_exporter" {
 
   set {
     name  = "aws.role"
-    value = aws_iam_role.ecr_exporter.name
+    value = aws_iam_role.ecr_exporter.0.name
   }
 
   set {

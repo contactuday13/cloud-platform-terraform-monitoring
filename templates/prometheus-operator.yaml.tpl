@@ -350,9 +350,11 @@ prometheus:
     ##
     retention: 1d
 
+    %{ if monitoring_aws_role != false }
     podMetadata:
       annotations:
         iam.amazonaws.com/role: "${monitoring_aws_role}"
+    %{ endif }
 
     ## Prometheus StorageSpec for persistent data
     ## ref: https://github.com/coreos/prometheus-operator/blob/master/Documentation/user-guides/storage.md
@@ -360,7 +362,7 @@ prometheus:
     storageSpec:
       volumeClaimTemplate:
         spec:
-          storageClassName: default
+          storageClassName: "${storage_class}"
           accessModes: ["ReadWriteOnce"]
           resources:
             requests:

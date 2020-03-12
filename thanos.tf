@@ -31,7 +31,7 @@ resource "helm_release" "thanos" {
 
   values = [templatefile("${path.module}/templates/thanos-values.yaml.tpl", {
     enabled_compact        = var.enable_thanos_compact
-    monitoring_aws_role    = aws_iam_role.monitoring.name
+    monitoring_aws_role    = aws_iam_role.monitoring.0.name
   })]
 
   depends_on = [ helm_release.prometheus_operator ]
