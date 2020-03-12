@@ -5,7 +5,7 @@ data "terraform_remote_state" "cluster" {
   config = {
     bucket  = "cloud-platform-terraform-state"
     region  = "eu-west-1"
-    key     = "cloud-platform/${terraform.workspace}/terraform.tfstate"
+    key     = var.running_in_eks ? "cloud-platform-eks/${terraform.workspace}/terraform.tfstate" : "cloud-platform/${terraform.workspace}/terraform.tfstate"
     profile = "moj-cp"
   }
 }

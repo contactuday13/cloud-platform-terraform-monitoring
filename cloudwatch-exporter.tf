@@ -1,6 +1,6 @@
-# Cloudwatch prometheus exporter
-# KIAM role creation
-# Ref: https://github.com/helm/charts/blob/master/stable/prometheus-cloudwatch-exporter/values.yaml
+#######################
+# Cloudwatch Exporter #
+#######################
 
 resource "helm_release" "cloudwatch_exporter" {
   count     = var.enable_cloudwatch_exporter ? 1 : 0

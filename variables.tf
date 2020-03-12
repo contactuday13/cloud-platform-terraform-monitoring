@@ -27,6 +27,12 @@ variable "enable_ecr_exporter" {
   type        = bool
 }
 
+variable "enable_thanos" {
+  description = "Enable or not Thanos"
+  default     = true
+  type        = bool
+}
+
 variable "enable_cloudwatch_exporter" {
   description = "Enable or not Cloudwatch exporter"
   default     = false
@@ -35,6 +41,12 @@ variable "enable_cloudwatch_exporter" {
 
 variable "enable_thanos_compact" {
   description = "Enable or not Thanos Compact - not semantically concurrency safe and must be deployed as a singleton against a bucket"
+  default     = false
+  type        = bool
+}
+
+variable "running_in_eks" {
+  description = "If this module is being deployed in EKS the paths for states are different, the IAM policies too. We need to know against what is running"
   default     = false
   type        = bool
 }
