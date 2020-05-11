@@ -324,7 +324,7 @@ prometheusOperator:
 
   ## Attempt to clean up CRDs created by Prometheus Operator.
   ##
-  cleanupCustomResource: true
+  cleanupCustomResource: false
 
 ## Deploy a Prometheus instance
 ##
